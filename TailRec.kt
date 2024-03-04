@@ -1,3 +1,4 @@
+
 import java.util.*
 import kotlin.reflect.KProperty
 
@@ -83,10 +84,10 @@ infix fun <R> Boolean.yield(value : R) : TailRec<R>? = value.takeIf { this }?.le
 
 fun main() {
 
-    val value by tailrec(35L) {
+    val fibonacci by tailrec(35L) {
         (it <= 1L) yield(it) ?: tailcall(it - 1) + tailcall(it - 2)
     }
 
-    println(value)
+    println(fibonacci)
 
 }
